@@ -27,6 +27,7 @@ elixir(function (mix) {
         './src/assets/core/vdt.js',
         './src/assets/core/DataView.js',
         './src/assets/core/DataViewVdt.js',
+        './src/assets/core/DataViewReact.js',
     ], 'public/core.js');
     
 });

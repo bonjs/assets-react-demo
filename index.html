@@ -29,7 +29,8 @@
 	
 	<body>
 	    
-		<div id=portal></div>
+		<div id=user style="border: 1px red solid"></div>
+		<div id=dog style="border: 1px red solid"></div>
 		
 		<script>
 			Ext.Loader.setPath('js', 'src/js');
@@ -37,15 +38,18 @@
 		</script>
 		
 		<script src="public/bundle.js"></script>
-		
 		<script>
 		
 			Ext.onReady(function() {
 				Ext.Loader.setConfig({
 					disableCaching: false
 				});
-				
-				Ext.create('js.User', {});
+				Ext.create('js.Dog', {
+					renderTo: 'dog'
+				});
+				Ext.create('js.User', {
+					renderTo: 'user'
+				});
 			})
 			// http://blog.csdn.net/mqy1023/article/details/51607820
 		</script>

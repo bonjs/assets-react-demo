@@ -2,7 +2,7 @@
 
 Ext.define('js.User', {
 	extend: 'core.DataViewReact',
-	renderTo: 'portal',
+	renderTo: 'user',
 	data: {
 		list: [
 			{id: 1, name: 'aaa'},
@@ -43,8 +43,5 @@ Ext.define('js.User', {
 	},
 	constructor: function() {
 		this.callParent();
-		
 	}
-	
 })
-

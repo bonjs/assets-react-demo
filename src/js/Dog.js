@@ -1,18 +1,16 @@
 
 Ext.define('js.Dog', {
 	extend: 'core.DataViewReact',
-	renderTo: 'portal',
+	renderTo: 'dog',
 	data: {
 		name: 'dog'
 	},
 	template: function() {
 		return (
-			<div>Dog</div>
+			<div>DogName：{this.state.name}</div>
 		)
 	},
 	constructor: function() {
 		this.callParent();
-		
 	}
 });
-
