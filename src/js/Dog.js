@@ -1,16 +1,21 @@
 
 Ext.define('js.Dog', {
 	extend: 'core.DataViewReact',
-	renderTo: 'dog',
 	data: {
 		name: 'dog'
 	},
 	template: function() {
 		return (
-			<div>DogName：{this.state.name}</div>
+			<div>
+				<title>DogName：{this.state.name}</title>
+				<button onClick={this.clickFn.bind(this, 1, 2)}>测试</button>
+			</div>
 		)
 	},
+	clickFn: function(a, b, c) {
+		console.log(b, c);
+	},
 	constructor: function() {
-		this.callParent();
+		this.callParent(arguments);
 	}
 });
