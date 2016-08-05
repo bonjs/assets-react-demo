@@ -2,39 +2,54 @@
 
 Ext.define('js.User', {
 	extend: 'core.DataViewReact',
-	renderTo: 'user',
+	//url: 'json/userList.json',
 	data: {
 		list: [
-			{id: 1, name: 'aaa'},
-			{id: 2, name: 'bbb'},
-			{id: 3, name: 'ccc'},
+			{id: 1, name: 'aaa', isChecked: true},
+			{id: 2, name: 'bbb', isChecked: false},
 		]
 	},
 	template: function() {
-		
-		var a = <div>哈哈a</div>;
-		var b = <div>哈哈b</div>;
-		
+		var me = this;
 		return (
-			<div style={{border: '1px red solid'}}>
+			<div>
+				<button onClick={this.addFn}>新增</button>
+				<button onClick={this.ajaxFn}>load</button>
 				{
 					this.state.list.map(function(it, i) {
 						return (
 							<li key={it.id}>
 								<input defaultValue={it.name} onChange={this.changeFn.bind(null, it)} />
+								<input type="checkbox" onChange={this.checkFn.bind(null, it)} checked={it.isChecked}/>
+								<button onClick={this.delFn.bind(null, i)}>删除</button>
 								<label>{it.name}</label>
-								<button onClick={this.clickFn.bind(null, it)}>{it.name}</button>
 							</li>
 						)
 					}.bind(this))
 				}
-				{a}
-				{b}
 			</div>
 		);
 	},
-	clickFn: function(it, e) {
-		alert(it.name)
+	ajaxFn: function() {
+		this.load('json/userList.json')
+		console.log(this);
+	},
+	addFn: function() {
+		var id = Math.random().toString(36).slice(2, 10)
+		
+		this.state.list.push({
+			id: id,
+			name: id 
+		});
+		this.setState(this.state);
+	},
+	delFn: function(i, e) {
+		this.state.list.splice(i, 1);
+		this.forceUpdate();
+	},
+	checkFn: function(it, e) {
+		it.isChecked = !it.isChecked;
+		this.forceUpdate();
 	},
 	changeFn: function(it, e) {
 		var v = e.target.value;
@@ -42,6 +57,6 @@ Ext.define('js.User', {
 		this.setState(this.state); 
 	},
 	constructor: function() {
-		this.callParent();
+		this.callParent(arguments);
 	}
 })
