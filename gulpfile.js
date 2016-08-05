@@ -51,7 +51,26 @@ gulp.task('react', function() {
 });
 
 gulp.task('jsx', function(){
-	gulp.watch(['./src/js/*.js'], ['react']);
+	gulp.start('react');	// 选择执行一次react, 再监听
+	gulp.watch(['./src/js/*.js'], ['react']); // 选择执行一次react, 再监听
+});
+
+gulp.task('w', function() {
+	try {
+		gulp.start(['react', 'default']);
+	} catch(e) {
+		console.log('err');
+	}
+	
+	gulp.watch(['./src/js/*.js']).on('change', function(e) {
+		console.info(' ' + e.type, e.path);
+		
+		try {
+			gulp.start('react');
+		} catch(e) {
+			console.log('err2');
+		}
+	}); 
 });
 
 

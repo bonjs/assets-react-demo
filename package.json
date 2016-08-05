@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.1.0",
+    "elixir-react-jsx": "^3.0.0",
     "gulp": "^3.9.1",
     "laravel-elixir": "^6.0.0-9",
     "reactify": "^1.1.1",

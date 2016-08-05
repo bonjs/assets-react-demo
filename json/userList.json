@@ -1,0 +1,10 @@
+{
+	"list": [
+		{"id": 1, "name": "aaa", "isChecked": true},
+		{"id": 2, "name": "bbb", "isChecked": true},
+		{"id": 3, "name": "ccc", "isChecked": false},
+		{"id": 4, "name": "ddd", "isChecked": true},
+		{"id": 5, "name": "eee", "isChecked": true},
+		{"id": 6, "name": "fff", "isChecked": false}
+	]
+}
